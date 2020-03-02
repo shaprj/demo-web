@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Users</title>
+
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}"/>
+    <link rel="stylesheet" th:href="@{/css/users.css}"/>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" th:each="item : ${navMenuItems}" th:text="${item.key}" th:href="@{${item.value}}">Ulala</a>
+</nav>
+
+<main role="main" class="container">
+    <div class="null-margin">
+        <div class="split left">
+            <!--            <div class = "top-left">-->
+            <div class="col-md-24 mb-3">
+                <input type="text" class="form-control" id="search-text-field" placeholder="Search.." required>
+            </div>
+            <table class="table" id="table">
+                <thead>
+                <tr class="bg-dark table-header">
+                    <th onclick="sortTable(0)" scope="col">#</th>
+                    <th onclick="sortTable(1)" scope="col">Name</th>
+                    <th onclick="sortTable(2)" scope="col">Login</th>
+                    <th onclick="sortTable(3)" scope="col">Age</th>
+                    <th onclick="sortTable(4)" scope="col">Is male</th>
+                </tr>
+                </thead>
+                <tbody id = "filtered-table">
+                <th:block th:each="user : ${userList}">
+                    <tr>
+                        <td id=user_id th:text="${user.id}">Id</td>
+                        <td id=user_name th:text="${user.name}">Name</td>
+                        <td id=user_login th:text="${user.login}">Login</td>
+                        <td id=user_age th:text="${user.age}">Age</td>
+                        <td id=user_is_male th:text="${user.male}">Is male</td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="split right">
+        <div class=top-left>
+            <div class="col-md-24 mb-3">
+                <label>Id</label>
+                <input type="text" class="form-control" id="user-id" placeholder="" required>
+                <div class="invalid-feedback">
+                    Id is required
+                </div>
+            </div>
+            <div class="col-md-24 mb-3">
+                <label>Name</label>
+                <input type="text" class="form-control" id="user-name" placeholder="" required>
+                <div class="invalid-feedback">
+                    Name is required
+                </div>
+            </div>
+            <div class="col-md-24 mb-3">
+                <label>Login</label>
+                <input type="text" class="form-control" id="user-login" placeholder="" required>
+                <div class="invalid-feedback">
+                    Login is required
+                </div>
+            </div>
+            <div class="col-md-24 mb-3">
+                <label>Age</label>
+                <input type="text" class="form-control" id="user-age" placeholder="" required>
+                <div class="invalid-feedback">
+                    Age is required
+                </div>
+            </div>
+            <div class="col-md-24 mb-3">
+                <label>Is male</label>
+                <select class="browser-default custom-select" id="user-is-male">
+                    <option value="true">true</option>
+                    <option value="false">false</option>
+                </select>
+                <!--                    <input type="text" class="form-control" id="user-is-male" placeholder="" required>-->
+                <div class="invalid-feedback">
+                    Is male is required
+                </div>
+            </div>
+
+            <hr class="mb-4">
+            <button class="btn btn-secondary btn-lg" id="onCreate">Create</button>
+            <button class="btn btn-secondary btn-lg" id="onUpdate">Update</button>
+            <button class="btn btn-secondary btn-lg" id="onDelete">Delete</button>
+        </div>
+    </div>
+    </div>
+</main>
+<!-- /.container -->
+
+<script type="text/javascript"
+        th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" th:src="@{/js/sort.js}"></script>
+<script type="text/javascript" th:src="@{/js/users.js}"></script>
+</body>
+</html>

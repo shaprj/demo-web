@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Products</title>
+
+    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}"/>
+    <link rel="stylesheet" th:href="@{/css/products.css}"/>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark nav-bar-demo-web-products fixed-top">
+    <a class="navbar-brand" th:each="item : ${navMenuItems}" th:text="${item.key}" th:href="@{${item.value}}">Ulala</a>
+</nav>
+
+<main role="main" class="container">
+    <div class = "null-margin">
+        <div class = "split left">
+            <div class="col-md-24 mb-3">
+                <input type="text" class="form-control" id="search-text-field" placeholder="Search.." required>
+            </div>
+            <!--            <div class = "top-left">-->
+            <table class="table" id = "table">
+                <thead>
+                <tr class = "product-table-header table-header">
+                    <th onclick="sortTable(0)" scope="col">#</th>
+                    <th onclick="sortTable(1)" scope="col">Name</th>
+                    <th onclick="sortTable(2)" scope="col">Description</th>
+                    <th onclick="sortTable(3)" scope="col">Type</th>
+                    <th onclick="sortTableNumeric(4)" scope="col">Price($)</th>
+                </tr>
+                </thead>
+                <tbody id = "filtered-table">
+                <th:block th:each="product : ${productList}">
+                    <tr>
+                        <td id = product_id th:text="${product.id}">Id</td>
+                        <td id = product_name th:text="${product.name}">Name</td>
+                        <td id = product_description th:text="${product.description}">Description</td>
+                        <td id = product_type th:text="${product.productType}">Type</td>
+                        <td id = product_price th:text="${product.price}">Price</td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class = "split right">
+        <div class = top-left>
+            <div class="col-md-24 mb-3">
+                <label>Id</label>
+                <input type="text" class="form-control" id="product-id" placeholder="" required>
+                <div class="invalid-feedback">
+                    Id is required
+                </div>
+            </div>
+            <div class="col-md-24 mb-3">
+                <label>Name</label>
+                <input type="text" class="form-control" id="product-name" placeholder="" required>
+                <div class="invalid-feedback">
+                    Name is required
+                </div>
+            </div>
+            <div class="col-md-24 mb-3">
+                <label>Description</label>
+                <input type="text" class="form-control" id="product-description" placeholder="" required>
+                <div class="invalid-feedback">
+                    Description is required
+                </div>
+            </div>
+            <div class="col-md-24 mb-3">
+                <label>Product Type</label>
+                <select class="browser-default custom-select" id="product-type">
+                    <option th:each="productType : ${productTypeList}"
+                            th:value="${productType.id}"
+                            th:utext="${productType.name}"/>
+                </select>
+                <div class="invalid-feedback">
+                    Product Type is required
+                </div>
+            </div>
+            <div class="col-md-24 mb-3">
+                <label>Price</label>
+                <input type="text" class="form-control" id="product-price" placeholder="" required>
+                <div class="invalid-feedback">
+                    Price is required
+                </div>
+            </div>
+
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg" id = "onCreate">Create</button>
+            <button class="btn btn-primary btn-lg" id = "onUpdate">Update</button>
+            <button class="btn btn-primary btn-lg" id = "onDelete">Delete</button>
+        </div>
+    </div>
+    </div>
+</main>
+<!-- /.container -->
+
+<script type="text/javascript" th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" th:src="@{/js/sort.js}"></script>
+<script type="text/javascript" th:src="@{/js/products.js}"></script>
+</body>
+</html>
