@@ -3,11 +3,11 @@ $("#table tr").click(function(){
     var id=$(this).find('td:first').html();
     var startDate = $(this).find('#contract_start_date').html();
     var endDate = $(this).find('#contract_end_date').html();
-    var user = $(this).find('#constract_user').html();
+    var user = $(this).find('#contract_user').html();
     var product = $(this).find('#contract_product').html();
     $('#contract-id').val(id);
-    $('#contract-start-date').val(name);
-    $('#contract-end-date').val(description);
+    $('#contract-start-date').val(startDate);
+    $('#contract-end-date').val(endDate);
 
     $("#contract-user option").each(function(){
         if($(this).text() == user){
@@ -58,4 +58,13 @@ $("#onDelete").click(function(){
     $.post("delete", model, function(res){
         location.reload();
     });
+});
+
+$(document).ready(function(){
+  $("#search-text-field").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#filtered-table tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 });

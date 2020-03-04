@@ -52,8 +52,7 @@ public class ContractController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    private void createContract(@ModelAttribute("id") Long id,
-                                @ModelAttribute("start_date") String startDateTime,
+    private void createContract(@ModelAttribute("start_date") String startDateTime,
                                 @ModelAttribute("end_date") String endDateTime,
                                 @ModelAttribute("user") Long userId,
                                 @ModelAttribute("product") Long productId){
