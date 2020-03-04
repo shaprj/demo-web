@@ -1,0 +1,53 @@
+.table-header {
+    color: #FFF;
+}
+
+.selected {
+    background-color: #bf9c9c;
+    color: #FFF;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  padding-top: 0px;
+}
+
+/* Control the left side */
+.left {
+  width: 60%;
+  left: 0;
+}
+
+/* Control the right side */
+.right {
+  width: 40%;
+  right: 0;
+  background-color: #80770b/*#d6d8d6*/;
+  color: #FFF;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.top-left {
+  top: 10%;
+  left: 10%;
+  margin: 5%;
+  text-align: top;
+}
+
+.null-margin {
+    margin: 0%;
+}
+
+.product-table-header {
+    background-color: #80770b;
+}

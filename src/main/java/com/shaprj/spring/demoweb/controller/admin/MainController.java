@@ -44,7 +44,7 @@ public class MainController {
     @RequestMapping(value = "/contracts", method = RequestMethod.GET)
     public String initContacts(Model model){
         model.addAttribute("navMenuItems", navMenuItems);
-        return "contracts";
+        return "redirect:contracts/all";
     }
 
 

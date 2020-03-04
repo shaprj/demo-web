@@ -9,6 +9,7 @@
     <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/css/navbar.css}"/>
+    <link rel="stylesheet" th:href="@{/css/contracts.css}"/>
 
 </head>
 
@@ -19,14 +20,95 @@
 </nav>
 
 <main role="main" class="container">
-
-    <div class="starter-template">
-        <h1>Contracts</h1>
+    <div class = "null-margin">
+        <div class = "split left">
+            <div class="col-md-24 mb-3">
+                <input type="text" class="form-control" id="search-text-field" placeholder="Search.." required>
+            </div>
+            <!--            <div class = "top-left">-->
+            <table class="table" id = "table">
+                <thead>
+                <tr class = "product-table-header table-header">
+                    <th onclick="sortTable(0)" scope="col">#</th>
+                    <th onclick="sortTable(1)" scope="col">From</th>
+                    <th onclick="sortTable(2)" scope="col">To</th>
+                    <th onclick="sortTable(3)" scope="col">User</th>
+                    <th onclick="sortTableNumeric(4)" scope="col">Product</th>
+                </tr>
+                </thead>
+                <tbody id = "filtered-table">
+                <th:block th:each="contract : ${contractList}">
+                    <tr>
+                        <td id = contract_id th:text="${contract.id}">Id</td>
+                        <td id = contract_start_date th:text="${contract.startDate}">Start date</td>
+                        <td id = contract_end_date th:text="${contract.endDate}">End date</td>
+                        <td id = constract_user th:text="${contract.User}">User</td>
+                        <td id = contract_product th:text="${contract.Product}">Product</td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
     </div>
+    <div class = "split right">
+        <div class = top-left>
+            <div class="col-md-24 mb-3">
+                <label>Id</label>
+                <input type="text" class="form-control" id="contract-id" placeholder="" required>
+                <div class="invalid-feedback">
+                    Id is required
+                </div>
+            </div>
+            <div class="col-md-24 mb-3" id = "datetimepicker1">
+                <label>From</label>
+                <input type="date" class="form-control" id="contract-start-date" required>
+                <div class="invalid-feedback">
+                    From is required
+                </div>
+            </div>
+            <div class="col-md-24 mb-3">
+                <label>To</label>
+                <input type="date" class="form-control" id="contract-end-date" required>
+                <div class="invalid-feedback">
+                    To is required
+                </div>
+            </div>
+            <div class="col-md-24 mb-3">
+                <label>User</label>
+                <select class="browser-default custom-select" id="contract-user">
+                    <option th:each="user : ${userList}"
+                            th:value="${user.id}"
+                            th:utext="${user.name}"/>
+                </select>
+                <div class="invalid-feedback">
+                    User is required
+                </div>
+            </div>
+            <div class="col-md-24 mb-3">
+                <label>Product</label>
+                <select class="browser-default custom-select" id="contract-product">
+                    <option th:each="product : ${productList}"
+                            th:value="${product.id}"
+                            th:utext="${product.name}"/>
+                </select>
+                <div class="invalid-feedback">
+                    Product is required
+                </div>
+            </div>
 
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg" id = "onCreate">Create</button>
+            <button class="btn btn-primary btn-lg" id = "onUpdate">Update</button>
+            <button class="btn btn-primary btn-lg" id = "onDelete">Delete</button>
+        </div>
+    </div>
+    </div>
 </main>
 <!-- /.container -->
 
 <script type="text/javascript" th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" th:src="@{/js/sort.js}"></script>
+<script type="text/javascript" th:src="@{/js/contracts.js}"></script>
 </body>
 </html>
