@@ -147,7 +147,8 @@ public class User {
 
     @Override
     public String toString(){
-        return String.format("User [id = %d, name = %s, login = %s, sex = %s, age = %d]",
-                id, name, login, isMale ? "MALE" : "FEMALE", age);
+        return name;
+//        return String.format("User [id = %d, name = %s, login = %s, sex = %s, age = %d]",
+//                id, name, login, isMale ? "MALE" : "FEMALE", age);
     }
 }
