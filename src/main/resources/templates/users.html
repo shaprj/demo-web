@@ -17,6 +17,11 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" th:each="item : ${navMenuItems}" th:text="${item.key}" th:href="@{${item.value}}">Ulala</a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/logout" data-target="#myModal" >Logout</a>
+        </li>
+    </ul>
 </nav>
 
 <main role="main" class="container">
