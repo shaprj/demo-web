@@ -51,3 +51,15 @@
 .product-table-header {
     background-color: #117b0a;
 }
+
+#table-wrapper {
+  position:relative;
+}
+
+#table-scroll {
+  overflow:auto;
+}
+
+#table-wrapper table thead th .text {
+  position:absolute;
+}
