@@ -62,9 +62,15 @@ $("#onDelete").click(function(){
 
 $(document).ready(function(){
   $("#search-text-field").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#filtered-table tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    var value = $(this).val();
+
+      var model_filter = {
+          filter: value,
+          _csrf: "hardcoded",
+      };
+
+    $.post("all/filtered", model_filter, function(res){
+        location.reload();
     });
   });
 });

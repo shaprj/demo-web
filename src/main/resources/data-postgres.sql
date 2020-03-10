@@ -102,7 +102,7 @@ d record;
 r record;
 s record;
 begin
-    for d in select day from generate_series('2020-01-01'::date, '2051-01-01'::date, '1 year'::interval) day
+    for d in select day from generate_series('2020-01-01'::date, '2021-01-01'::date, '1 year'::interval) day
 	loop
 		for r in select id from t_users
 		loop
