@@ -41,7 +41,7 @@ All data operatoions are processed on the backend part & pagination is used.
 
 The basic auth is used.
 
-Added the only in-memmory role "USER" which approve all form access
+Added the only in-memmory user with role "USER" which approve all form access
 
 The credentails are: user/password
 
