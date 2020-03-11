@@ -12,8 +12,8 @@ import java.math.BigDecimal;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="s_products_sequence")
-    @SequenceGenerator(name="s_products_sequence", sequenceName="s_products_sequence", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "s_products_sequence")
+    @SequenceGenerator(name = "s_products_sequence", sequenceName = "s_products_sequence", allocationSize = 1)
     private long id;
 
     private String name;
@@ -21,14 +21,15 @@ public class Product {
     private String description;
 
     @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = ProductType.class)
-    @JoinColumn(name="product_type_id")
+    @JoinColumn(name = "product_type_id")
     private ProductType productType;
 
     private BigDecimal price;
 
-    public Product(){}
+    public Product() {
+    }
 
-    public Product(long id, String name, String description, ProductType productType, BigDecimal price){
+    public Product(long id, String name, String description, ProductType productType, BigDecimal price) {
 
         this.id = id;
         this.name = name;
@@ -37,7 +38,7 @@ public class Product {
         this.price = price;
     }
 
-    public Product(String name, String description, ProductType productType, BigDecimal price){
+    public Product(String name, String description, ProductType productType, BigDecimal price) {
         this.name = name;
         this.description = description;
         this.productType = productType;
@@ -85,7 +86,7 @@ public class Product {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return name;
     }
 }

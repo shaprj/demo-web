@@ -40,7 +40,7 @@
 .top-left {
   top: 10%;
   left: 10%;
-  margin: 5%;
+  margin: 0%;
   text-align: top;
 }
 
@@ -62,4 +62,9 @@
 
 #table-wrapper table thead th .text {
   position:absolute;
+}
+
+.active {
+    background-color: #80770b;
+    color: #FFF
 }

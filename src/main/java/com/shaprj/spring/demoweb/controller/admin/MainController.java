@@ -21,30 +21,30 @@ public class MainController {
                     {"Users", "~/users"},
                     {"Products", "~/products"},
                     {"Contracts", "~/contracts"},
-    }).collect(Collectors.toMap(i -> i[0], i -> i[1]));
+            }).collect(Collectors.toMap(i -> i[0], i -> i[1]));
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String initIndex(Model model){
+    public String initIndex(Model model) {
         model.addAttribute("navMenuItems", navMenuItems);
         return "index";
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public String initUsers(Model model){
+    public String initUsers(Model model) {
         model.addAttribute("navMenuItems", navMenuItems);
         return "redirect:users/all";
     }
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
-    public String initProducts(Model model){
+    public String initProducts(Model model) {
         model.addAttribute("navMenuItems", navMenuItems);
         return "redirect:products/all";
     }
 
     @RequestMapping(value = "/contracts", method = RequestMethod.GET)
-    public String initContacts(Model model){
+    public String initContacts(Model model) {
         model.addAttribute("navMenuItems", navMenuItems);
-        return "redirect:contracts/all";
+        return "redirect:contracts/all/paginated";
     }
 
 

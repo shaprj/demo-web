@@ -5,7 +5,7 @@
 package com.shaprj.spring.demoweb.service;
 
 import com.shaprj.spring.demoweb.model.admin.User;
-import com.shaprj.spring.demoweb.repository.UserRepository;
+import com.shaprj.spring.demoweb.repository.crud.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

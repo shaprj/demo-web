@@ -6,7 +6,7 @@
 
     <title>Contacts</title>
 
-    <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/css/navbar.css}"/>
     <link rel="stylesheet" th:href="@{/css/contracts.css}"/>
@@ -43,7 +43,7 @@
                     </tr>
                     </thead>
                     <tbody id="filtered-table">
-                    <th:block th:each="contract : ${contractList}">
+                    <th:block th:each="contract, iStat : ${contractPage.content}">
                         <tr>
                             <td id=contract_id th:text="${contract.id}">Id</td>
                             <td id=contract_start_date th:text="${contract.startDate}">Start date</td>
@@ -54,8 +54,20 @@
                     </th:block>
                     </tbody>
                 </table>
+                <div class="pagination">
+                    <a th:href="@{/contracts/all/paginated(size=${contractPage.size}, page=${1})}"
+                       class="page-link"><<</a>
+                    <th:block th:if="${contractPage.totalPages > 0}" th:each="pageNumber : ${pageNumbers}">
+                        <a th:href="@{/contracts/all/paginated(size=${contractPage.size}, page=${pageNumber})}"
+                           th:text=${pageNumber}
+                           class="page-link" th:classappend="${pageNumber==contractPage.number + 1} ? active"></a>
+                    </th:block>
+                    <a th:href="@{/contracts/all/paginated(size=${contractPage.size}, page=${contractPage.totalPages})}"
+                       class="page-link">>></a>
+                </div>
             </div>
         </div>
+    </div>
     </div>
     <div class="split right">
         <div class=top-left>
@@ -113,8 +125,7 @@
 </main>
 <!-- /.container -->
 
-<script type="text/javascript"
-        th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" th:src="@{/js/sort.js}"></script>
 <script type="text/javascript" th:src="@{/js/contracts.js}"></script>

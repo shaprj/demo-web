@@ -1,4 +1,4 @@
-package com.shaprj.spring.demoweb.repository;
+package com.shaprj.spring.demoweb.repository.crud;
 /*
  * Created by O.Shalaevsky on 04.03.2020
  */

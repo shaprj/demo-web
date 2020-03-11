@@ -15,8 +15,8 @@ import java.util.Objects;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="s_users_sequence")
-    @SequenceGenerator(name="s_users_sequence", sequenceName="s_users_sequence", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "s_users_sequence")
+    @SequenceGenerator(name = "s_users_sequence", sequenceName = "s_users_sequence", allocationSize = 1)
     private long id;
     private String name;
     private String login;
@@ -27,9 +27,10 @@ public class User {
     private int age;
     private String passwordHash;
 
-    public User(){}
+    public User() {
+    }
 
-    public User(long id, String name, String login, Boolean isMale, int age, String passwordHash){
+    public User(long id, String name, String login, Boolean isMale, int age, String passwordHash) {
 
         this.id = id;
         this.name = name;
@@ -39,14 +40,14 @@ public class User {
         this.passwordHash = passwordHash;
     }
 
-    public User(int id, String name, String login, int age){
+    public User(int id, String name, String login, int age) {
         this.id = id;
         this.name = name;
         this.login = login;
         this.age = age;
     }
 
-    public User(int id, String name, String login, int age, Boolean isMale){
+    public User(int id, String name, String login, int age, Boolean isMale) {
         this.id = id;
         this.name = name;
         this.login = login;
@@ -54,7 +55,7 @@ public class User {
         this.isMale = isMale;
     }
 
-    public User(String name, String login, int age, Boolean isMale){
+    public User(String name, String login, int age, Boolean isMale) {
         this.name = name;
         this.login = login;
         this.age = age;
@@ -111,7 +112,7 @@ public class User {
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return Objects.hashCode(id) +
                 Objects.hashCode(name) +
                 Objects.hashCode(login) +
@@ -121,19 +122,19 @@ public class User {
     }
 
     @Override
-    public boolean equals(Object o){
-        if(o == this){
+    public boolean equals(Object o) {
+        if (o == this) {
             return true;
         }
-        if(o == null){
+        if (o == null) {
             return false;
         }
 
-        if(o.getClass() != getClass()){
+        if (o.getClass() != getClass()) {
             return false;
         }
 
-        User u = (User)o;
+        User u = (User) o;
 
         return new EqualsBuilder()
                 .append(id, u.id)
@@ -146,7 +147,7 @@ public class User {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return name;
 //        return String.format("User [id = %d, name = %s, login = %s, sex = %s, age = %d]",
 //                id, name, login, isMale ? "MALE" : "FEMALE", age);

@@ -19,7 +19,7 @@
     <a class="navbar-brand" th:each="item : ${navMenuItems}" th:text="${item.key}" th:href="@{${item.value}}">Ulala</a>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="/logout" data-target="#myModal" >Logout</a>
+            <a class="nav-link" href="/logout" data-target="#myModal">Logout</a>
         </li>
     </ul>
 </nav>
@@ -27,65 +27,67 @@
 <main role="main" class="container">
     <div class="null-margin" id="table-wrapper">
         <div class="split left" id="table-scroll">
-            <div class="col-md-24 mb-3">
+            <div class="col-md-24 mx-1 my-1">
                 <input type="text" class="form-control" id="search-text-field" placeholder="Search.." required>
             </div>
             <!--            <div class = "top-left">-->
-            <table class="table" id="table">
-                <thead>
-                <tr class="bg-dark table-header">
-                    <th onclick="sortTable(0)" scope="col">#</th>
-                    <th onclick="sortTable(1)" scope="col">Name</th>
-                    <th onclick="sortTable(2)" scope="col">Login</th>
-                    <th onclick="sortTable(3)" scope="col">Age</th>
-                    <th onclick="sortTable(4)" scope="col">Is male</th>
-                </tr>
-                </thead>
-                <tbody id = "filtered-table">
-                <th:block th:each="user : ${userList}">
-                    <tr>
-                        <td id=user_id th:text="${user.id}">Id</td>
-                        <td id=user_name th:text="${user.name}">Name</td>
-                        <td id=user_login th:text="${user.login}">Login</td>
-                        <td id=user_age th:text="${user.age}">Age</td>
-                        <td id=user_is_male th:text="${user.male}">Is male</td>
+            <div class="mx-1 my-1">
+                <table class="table" id="table">
+                    <thead>
+                    <tr class="bg-dark table-header">
+                        <th onclick="sortTable(0)" scope="col">#</th>
+                        <th onclick="sortTable(1)" scope="col">Name</th>
+                        <th onclick="sortTable(2)" scope="col">Login</th>
+                        <th onclick="sortTable(3)" scope="col">Age</th>
+                        <th onclick="sortTable(4)" scope="col">Is male</th>
                     </tr>
-                </th:block>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody id="filtered-table">
+                    <th:block th:each="user : ${userList}">
+                        <tr>
+                            <td id=user_id th:text="${user.id}">Id</td>
+                            <td id=user_name th:text="${user.name}">Name</td>
+                            <td id=user_login th:text="${user.login}">Login</td>
+                            <td id=user_age th:text="${user.age}">Age</td>
+                            <td id=user_is_male th:text="${user.male}">Is male</td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div class="split right">
         <div class=top-left>
-            <div class="col-md-24 mb-3">
+            <div class="col-md-24 mx-1 my-1">
                 <label>Id</label>
                 <input type="text" class="form-control" id="user-id" placeholder="" required>
                 <div class="invalid-feedback">
                     Id is required
                 </div>
             </div>
-            <div class="col-md-24 mb-3">
+            <div class="col-md-24 mx-1 my-1">
                 <label>Name</label>
                 <input type="text" class="form-control" id="user-name" placeholder="" required>
                 <div class="invalid-feedback">
                     Name is required
                 </div>
             </div>
-            <div class="col-md-24 mb-3">
+            <div class="col-md-24 mx-1 my-1">
                 <label>Login</label>
                 <input type="text" class="form-control" id="user-login" placeholder="" required>
                 <div class="invalid-feedback">
                     Login is required
                 </div>
             </div>
-            <div class="col-md-24 mb-3">
+            <div class="col-md-24 mx-1 my-1">
                 <label>Age</label>
                 <input type="text" class="form-control" id="user-age" placeholder="" required>
                 <div class="invalid-feedback">
                     Age is required
                 </div>
             </div>
-            <div class="col-md-24 mb-3">
+            <div class="col-md-24 mx-1 my-1">
                 <label>Is male</label>
                 <select class="browser-default custom-select" id="user-is-male">
                     <option value="true">true</option>
@@ -97,10 +99,10 @@
                 </div>
             </div>
 
-            <hr class="mb-4">
-            <button class="btn btn-secondary btn-lg" id="onCreate">Create</button>
-            <button class="btn btn-secondary btn-lg" id="onUpdate">Update</button>
-            <button class="btn btn-secondary btn-lg" id="onDelete">Delete</button>
+            <hr class="mx-2 my-2">
+            <button class="btn btn-secondary btn-lg mx-1 my-1" id="onCreate">Create</button>
+            <button class="btn btn-secondary btn-lg mx-1 my-1" id="onUpdate">Update</button>
+            <button class="btn btn-secondary btn-lg mx-1 my-1" id="onDelete">Delete</button>
         </div>
     </div>
     </div>

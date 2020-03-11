@@ -19,66 +19,68 @@
     <a class="navbar-brand" th:each="item : ${navMenuItems}" th:text="${item.key}" th:href="@{${item.value}}">Ulala</a>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="/logout" data-target="#myModal" >Logout</a>
+            <a class="nav-link" href="/logout" data-target="#myModal">Logout</a>
         </li>
     </ul>
 </nav>
 
 <main role="main" class="container">
-    <div class = "null-margin" id="table-wrapper">
-        <div class = "split left" id="table-scroll">
-            <div class="col-md-24 mb-3">
+    <div class="null-margin" id="table-wrapper">
+        <div class="split left" id="table-scroll">
+            <div class="col-md-24 mx-1 my-1">
                 <input type="text" class="form-control" id="search-text-field" placeholder="Search.." required>
             </div>
             <!--            <div class = "top-left">-->
-            <table class="table" id = "table">
-                <thead>
-                <tr class = "product-table-header table-header">
-                    <th onclick="sortTable(0)" scope="col">#</th>
-                    <th onclick="sortTable(1)" scope="col">Name</th>
-                    <th onclick="sortTable(2)" scope="col">Description</th>
-                    <th onclick="sortTable(3)" scope="col">Type</th>
-                    <th onclick="sortTableNumeric(4)" scope="col">Price($)</th>
-                </tr>
-                </thead>
-                <tbody id = "filtered-table">
-                <th:block th:each="product : ${productList}">
-                    <tr>
-                        <td id = product_id th:text="${product.id}">Id</td>
-                        <td id = product_name th:text="${product.name}">Name</td>
-                        <td id = product_description th:text="${product.description}">Description</td>
-                        <td id = product_type th:text="${product.productType}">Type</td>
-                        <td id = product_price th:text="${product.price}">Price</td>
+            <div class="mx-1 my-1">
+                <table class="table" id="table">
+                    <thead>
+                    <tr class="product-table-header table-header">
+                        <th onclick="sortTable(0)" scope="col">#</th>
+                        <th onclick="sortTable(1)" scope="col">Name</th>
+                        <th onclick="sortTable(2)" scope="col">Description</th>
+                        <th onclick="sortTable(3)" scope="col">Type</th>
+                        <th onclick="sortTableNumeric(4)" scope="col">Price($)</th>
                     </tr>
-                </th:block>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody id="filtered-table">
+                    <th:block th:each="product : ${productList}">
+                        <tr>
+                            <td id=product_id th:text="${product.id}">Id</td>
+                            <td id=product_name th:text="${product.name}">Name</td>
+                            <td id=product_description th:text="${product.description}">Description</td>
+                            <td id=product_type th:text="${product.productType}">Type</td>
+                            <td id=product_price th:text="${product.price}">Price</td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    <div class = "split right">
-        <div class = top-left>
-            <div class="col-md-24 mb-3">
+    <div class="split right">
+        <div class=top-left>
+            <div class="col-md-24 mx-1 my-1">
                 <label>Id</label>
                 <input type="text" class="form-control" id="product-id" placeholder="" required>
                 <div class="invalid-feedback">
                     Id is required
                 </div>
             </div>
-            <div class="col-md-24 mb-3">
+            <div class="col-md-24 mx-1 my-1">
                 <label>Name</label>
                 <input type="text" class="form-control" id="product-name" placeholder="" required>
                 <div class="invalid-feedback">
                     Name is required
                 </div>
             </div>
-            <div class="col-md-24 mb-3">
+            <div class="col-md-24 mx-1 my-1">
                 <label>Description</label>
                 <input type="text" class="form-control" id="product-description" placeholder="" required>
                 <div class="invalid-feedback">
                     Description is required
                 </div>
             </div>
-            <div class="col-md-24 mb-3">
+            <div class="col-md-24 mx-1 my-1">
                 <label>Product Type</label>
                 <select class="browser-default custom-select" id="product-type">
                     <option th:each="productType : ${productTypeList}"
@@ -89,7 +91,7 @@
                     Product Type is required
                 </div>
             </div>
-            <div class="col-md-24 mb-3">
+            <div class="col-md-24 mx-1 my-1">
                 <label>Price</label>
                 <input type="text" class="form-control" id="product-price" placeholder="" required>
                 <div class="invalid-feedback">
@@ -97,17 +99,18 @@
                 </div>
             </div>
 
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg" id = "onCreate">Create</button>
-            <button class="btn btn-primary btn-lg" id = "onUpdate">Update</button>
-            <button class="btn btn-primary btn-lg" id = "onDelete">Delete</button>
+            <hr class="mx-2 my-2">
+            <button class="btn btn-primary btn-lg mx-1 my-1" id="onCreate">Create</button>
+            <button class="btn btn-primary btn-lg mx-1 my-1" id="onUpdate">Update</button>
+            <button class="btn btn-primary btn-lg mx-1 my-1" id="onDelete">Delete</button>
         </div>
     </div>
     </div>
 </main>
 <!-- /.container -->
 
-<script type="text/javascript" th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+<script type="text/javascript"
+        th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" th:src="@{/js/sort.js}"></script>
 <script type="text/javascript" th:src="@{/js/products.js}"></script>

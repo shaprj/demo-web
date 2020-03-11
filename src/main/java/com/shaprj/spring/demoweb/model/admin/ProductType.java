@@ -11,8 +11,8 @@ import javax.persistence.*;
 public class ProductType {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="s_products_sequence")
-    @SequenceGenerator(name="s_products_sequence", sequenceName="s_products_sequence", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "s_products_sequence")
+    @SequenceGenerator(name = "s_products_sequence", sequenceName = "s_products_sequence", allocationSize = 1)
     private long id;
 
     private String name;
@@ -44,7 +44,7 @@ public class ProductType {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return name;
     }
 }

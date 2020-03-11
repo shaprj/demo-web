@@ -61,16 +61,19 @@ $("#onDelete").click(function(){
 });
 
 $(document).ready(function(){
-  $("#search-text-field").on("keyup", function() {
+  $("#search-text-field").on("keyup", function(event) {
+
+  if(event.keyCode === 13){
     var value = $(this).val();
 
-      var model_filter = {
-          filter: value,
-          _csrf: "hardcoded",
-      };
+    var model_filter = {
+        filter: value,
+    };
 
-    $.post("all/filtered", model_filter, function(res){
+    $.post("filtered", model_filter, function(res){
         location.reload();
     });
+  }
+
   });
 });

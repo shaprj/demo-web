@@ -5,7 +5,7 @@
 package com.shaprj.spring.demoweb.service;
 
 import com.shaprj.spring.demoweb.model.admin.ProductType;
-import com.shaprj.spring.demoweb.repository.ProductTypeRepository;
+import com.shaprj.spring.demoweb.repository.crud.ProductTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +34,7 @@ public class ProductTypeServiceImpl implements ProductTypeService {
     }
 
     @Override
-    public Optional<ProductType> findById(Long id){
+    public Optional<ProductType> findById(Long id) {
         return productTypeRepository.findById(id);
     }
 }

@@ -6,29 +6,29 @@ package com.shaprj.spring.demoweb.model.admin;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "t_contracts")
 public class Contract {
 
-    public Contract(){}
+    public Contract() {
+    }
 
-    public Contract(LocalDate startDate, LocalDate endDate, User user, Product product){
+    public Contract(LocalDate startDate, LocalDate endDate, User user, Product product) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.user = user;
         this.product = product;
     }
 
-    public Contract(long id, LocalDate startDate, LocalDate endDate, User user, Product product){
+    public Contract(long id, LocalDate startDate, LocalDate endDate, User user, Product product) {
         this(startDate, endDate, user, product);
         this.id = id;
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="s_contracts_sequence")
-    @SequenceGenerator(name="s_contracts_sequence", sequenceName="s_contracts_sequence", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "s_contracts_sequence")
+    @SequenceGenerator(name = "s_contracts_sequence", sequenceName = "s_contracts_sequence", allocationSize = 1)
     private long id;
 
     @Column(name = "start_date_time")
@@ -38,7 +38,7 @@ public class Contract {
     private LocalDate endDate;
 
     @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = User.class)
-    @JoinColumn(name="user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = Product.class)

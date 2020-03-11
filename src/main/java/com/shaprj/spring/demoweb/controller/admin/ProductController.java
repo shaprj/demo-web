@@ -30,7 +30,7 @@ public class ProductController {
     private ProductTypeService productTypeService;
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public ModelAndView getAllProducts(Model model){
+    public ModelAndView getAllProducts(Model model) {
 
         List<Product> userList = productService.findAll();
         List<ProductType> productTypeList = productTypeService.findAll();
@@ -41,11 +41,11 @@ public class ProductController {
         return new ModelAndView("products", model.asMap());
     }
 
-    @RequestMapping(value = "/create", method= RequestMethod.POST)
-    public void createUser(@ModelAttribute("name")String name,
-                           @ModelAttribute("description")String description,
-                           @ModelAttribute("productTypeId")Long productTypeId,
-                           @ModelAttribute("price") BigDecimal price){
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public void createUser(@ModelAttribute("name") String name,
+                           @ModelAttribute("description") String description,
+                           @ModelAttribute("productTypeId") Long productTypeId,
+                           @ModelAttribute("price") BigDecimal price) {
         Product product = new Product(
                 name,
                 description,
@@ -54,12 +54,12 @@ public class ProductController {
         productService.save(product);
     }
 
-    @RequestMapping(value = "/update", method= RequestMethod.POST)
-    public void updateUser(@ModelAttribute("id")Integer id,
-                           @ModelAttribute("name")String name,
-                           @ModelAttribute("description")String description,
-                           @ModelAttribute("productTypeId")Long productTypeId,
-                           @ModelAttribute("price") BigDecimal price){
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public void updateUser(@ModelAttribute("id") Integer id,
+                           @ModelAttribute("name") String name,
+                           @ModelAttribute("description") String description,
+                           @ModelAttribute("productTypeId") Long productTypeId,
+                           @ModelAttribute("price") BigDecimal price) {
         Product product = new Product(id,
                 name,
                 description,
@@ -68,8 +68,8 @@ public class ProductController {
         productService.save(product);
     }
 
-    @RequestMapping(value = "/delete", method= RequestMethod.POST)
-    public void deleteUser(@ModelAttribute("id")Integer id){
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public void deleteUser(@ModelAttribute("id") Integer id) {
         productService.deleteById(id.longValue());
     }
 
