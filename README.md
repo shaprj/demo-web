@@ -31,11 +31,11 @@ All forms are prefilled with test data while app is loading
 
 Contracts data is filled for all users & products for the period untill 2051 year.
 
-So data scale in Contracts form is enough to make the direct work in browser unbearable.
+So data volume passed to Contracts form is enough to make the work in browser unbearable.
 
-That is why the logic of this from is changed. 
+That is why the logic of this from is different from dictionary forms. 
 
-All data operatoions are processed on the backend part & pagination is used.
+All data operatoions are processed on the application backend & pagination is used.
 
 ## Security
 
